@@ -31,6 +31,9 @@ public class PurchaseCtl extends BaseCtl {
 		if (DataValidator.isNull(request.getParameter("quantity"))) {
 			request.setAttribute("quantity", PropertyReader.getValue("error.require", "quantity"));
 			pass = false;
+		} else if (!DataValidator.isInteger(request.getParameter("quantity"))) {
+			request.setAttribute("quantity", "Quantity Must Contain Integer Only");
+			pass = false;
 		}
 
 		if (DataValidator.isNull(request.getParameter("product"))) {
@@ -49,6 +52,9 @@ public class PurchaseCtl extends BaseCtl {
 
 		if (DataValidator.isNull(request.getParameter("cost"))) {
 			request.setAttribute("cost", PropertyReader.getValue("error.require", "cost"));
+			pass = false;
+		} else if (!DataValidator.isInteger(request.getParameter("cost"))) {
+			request.setAttribute("cost", "Cost Must Contain Integer Only");
 			pass = false;
 		}
 
