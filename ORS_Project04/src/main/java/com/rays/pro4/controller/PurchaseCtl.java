@@ -151,9 +151,9 @@ public class PurchaseCtl extends BaseCtl {
 					System.out.println(" U ctl DoPost 33333");
 					long pk = model.add(bean);
 
-					ServletUtility.setBean(bean, request);
-
 					ServletUtility.setSuccessMessage("Purchase is successfully Added", request);
+
+					bean.setId(pk);
 
 				}
 
